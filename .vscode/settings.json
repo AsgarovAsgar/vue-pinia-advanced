@@ -1,6 +1,33 @@
 {
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+   // Theming
+   "workbench.iconTheme": "vs-seti",
+   "editor.fontFamily": "Dank Mono", // JetBrains Mono
+   "editor.fontLigatures": true,
+   "terminal.integrated.fontFamily": "JetBrains Mono",
+   "window.autoDetectColorScheme": true,
+   "workbench.colorTheme": "Default Dark Modern",
+   // "editor.codeLensFontSize": 13,
+   "editor.fontSize": 14,
+   "editor.lineHeight": 1.55,
+   "editor.suggestFontSize": 14,
+   // "editor.suggestLineHeight": 28,
+   // "terminal.integrated.fontSize": 12,
+   // "terminal.integrated.lineHeight": 1,
+   // "debug.console.fontSize": 10,
+   // More minimal UI
+   "window.zoomLevel": 1,
+   "workbench.activityBar.visible": true,
+   "editor.minimap.enabled": true,
+   "editor.glyphMargin": false,
+   // "editor.folding": false,
+   // "editor.lineNumbers": "off",
+   "workbench.sideBar.location": "left",
+   "workbench.editor.showTabs": true,
+   "workbench.editor.pinnedTabSizing": "compact",
+   "workbench.editor.tabSizing": "shrink",
+
 }

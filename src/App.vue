@@ -18,11 +18,24 @@ productStore.fill()
 //   })
 // }
 
+// subscribing to actions
+const unsubscribe = cartStore.$onAction(({name, args, after}) => {
+  if(name !== 'addItems') return
+  // a shared variable for this specific action call
+  // this will trigger before an action on `store` is executed
+  console.log('args', args)
+
+  after(() => console.log(`${name} action completed.`))
+})
+
 </script>
 
 <template>
   <div class="container">
     <TheHeader />
+    <div>
+      <button @click="unsubscribe">unsubscribe</button>
+    </div>
     <ul class="sm:flex flex-wrap lg:flex-nowrap gap-5">
       <ProductCard
         v-for="product in productStore.products" 

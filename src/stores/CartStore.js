@@ -1,13 +1,13 @@
-import { defineStore } from "pinia";
+import { defineStore, acceptHMRUpdate } from "pinia";
 import { ref, toRaw, computed } from "vue";
 import { groupBy } from "lodash";
+import { useAuthUserStore, } from "./AuthUserStore";
 
 export const useCartStore = defineStore("cartStore", () => {
   const items = ref([]);
 
   const count = computed(() => items.value.length)
   const isEmpty = computed(() => count.value === 0)
-
   const grouped = computed(() => {
     const grouped = groupBy(items.value, item => item.name)
     const sorted = Object.keys(grouped).sort()
@@ -15,9 +15,13 @@ export const useCartStore = defineStore("cartStore", () => {
     sorted.forEach(key => (inOrder[key] = grouped[key]))
     return inOrder
   })
-
   const groupCount = computed(() => (name) => grouped.value[name].length)
   const total = computed(() => items.value.reduce((acc, item) => acc + item.price, 0))
+
+  const checkout = () => {
+    const authUserStore = useAuthUserStore()
+    alert(`${authUserStore.username} just bought ${count.value} items at a total of $${total.value}`)
+  }
 
   const addItems = (count, item) => {
     count = parseInt(count)
@@ -46,9 +50,14 @@ export const useCartStore = defineStore("cartStore", () => {
     grouped,
     groupCount,
     total,
+    checkout,
     addItems,
     setItemCount,
     clearItem,
     resetStore
   };
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useAuthUserStore, import.meta.hot))
+}

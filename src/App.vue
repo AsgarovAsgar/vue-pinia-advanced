@@ -31,7 +31,8 @@ const unsubscribe = cartStore.$onAction(({name, args, after}) => {
 </script>
 
 <template>
-  <div class="container">
+  <router-view></router-view>
+  <!-- <div class="container">
     <TheHeader />
     <div>
       <button style="font-size: 12px; border: 1px solid lightgray; padding: 4px 12px; margin-bottom: 4px; border-radius: 4px;" @click="unsubscribe">Unsubscribe from cart store</button>
@@ -44,5 +45,5 @@ const unsubscribe = cartStore.$onAction(({name, args, after}) => {
         @addToCart="cartStore.addItems($event, product)"
       />
     </ul>
-  </div>
+  </div> -->
 </template>

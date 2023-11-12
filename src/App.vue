@@ -34,7 +34,7 @@ const unsubscribe = cartStore.$onAction(({name, args, after}) => {
   <div class="container">
     <TheHeader />
     <div>
-      <button @click="unsubscribe">unsubscribe</button>
+      <button style="font-size: 12px; border: 1px solid lightgray; padding: 4px 12px; margin-bottom: 4px; border-radius: 4px;" @click="unsubscribe">Unsubscribe from cart store</button>
     </div>
     <ul class="sm:flex flex-wrap lg:flex-nowrap gap-5">
       <ProductCard

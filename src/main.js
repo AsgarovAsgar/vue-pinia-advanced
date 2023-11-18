@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import router from './router'
 import { createPinia } from "pinia";
 const pinia = createPinia();
 
@@ -14,6 +15,7 @@ import AppModalOverlay from "./components/AppModalOverlay.vue";
 
 // Init App
 createApp(App)
+  .use(router)
   .use(pinia)
   .use(FontAwesomePlugin)
   .component("AppButton", AppButton)
